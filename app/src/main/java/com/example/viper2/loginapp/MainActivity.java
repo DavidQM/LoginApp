@@ -3,14 +3,19 @@ package com.example.viper2.loginapp;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Toast;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.FacebookSdk;
+import com.facebook.Profile;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,8 +28,14 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         loginButton = (LoginButton) findViewById(R.id.login_button);
+        loginButton.setReadPermissions(Arrays.asList("email"));
 
         callbackManager= CallbackManager.Factory.create();
+
+        if (AccessToken.getCurrentAccessToken() != null){
+            goMainActivity2();
+
+        }
 
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
@@ -55,7 +66,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void goMainActivity2(){
+
+        Profile perfil= com.facebook.Profile.getCurrentProfile();
+       // String name = com.facebook.Profile.getCurrentProfile().getName();
+       // Log.d("name",name);
+
         Intent intent = new Intent(MainActivity.this, Main2Activity.class);
+        intent.putExtra("name",perfil.getName());
+        intent.putExtra("ID",perfil.getId());
         startActivity(intent);
     }
 }

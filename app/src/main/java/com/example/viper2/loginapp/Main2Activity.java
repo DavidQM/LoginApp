@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.facebook.AccessToken;
 import com.facebook.login.LoginManager;
 
 import org.w3c.dom.Text;
@@ -26,8 +27,15 @@ public class Main2Activity extends AppCompatActivity {
         tCorreo = (TextView) findViewById(R.id.tCorreo);
         bCerrar = (Button) findViewById(R.id.bCerrar);
 
+        Bundle bundle= getIntent().getExtras();
 
-
+        tUsuario.setText(bundle.getString("name"));
+        tCorreo.setText(bundle.getString("ID"));
+        /*
+        if (AccessToken.getCurrentAccessToken() == null){
+            goMainActivity();
+        }
+        */
     }
 
     public void logout(View view) {
