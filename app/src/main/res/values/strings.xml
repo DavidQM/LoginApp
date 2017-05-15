@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">LoginApp</string>
+    <string name="facebook_app_id">135218257023768</string>
+    <string name="Usuario">Nombre y apellidos</string>
+    <string name="Correo">Correo Electronico</string>
+    <string name="Cerrar">Cerrar Sesion</string>
+</resources>
