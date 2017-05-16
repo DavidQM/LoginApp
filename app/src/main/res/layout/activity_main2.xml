@@ -29,6 +29,14 @@
             android:textSize="20sp"
             tools:layout_editor_absoluteY="0dp"
             tools:layout_editor_absoluteX="8dp" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/tUid"
+            android:text="@string/UID"
+            android:textSize="20sp"
+            tools:layout_editor_absoluteY="0dp"
+            tools:layout_editor_absoluteX="8dp" />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
